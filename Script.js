@@ -4,7 +4,7 @@ let operator = '';
 let displayValue = '';
 
 function add(num1, num2) {
-    return num1 + num2;
+    return parseInt(num1) + parseInt(num2);
 }
 
 function subtract(num1, num2) {
@@ -36,7 +36,7 @@ function operate(num1, num2, operator) {
 }
 
 function display(val){
-    const displayArea = document.querySelector("#result");
+    
     if(val == '+' || val == '-' || val == '*' || val == '/'){
         displayValue = displayArea.value + " " + val + " ";
         displayArea.value = displayValue;
@@ -47,12 +47,24 @@ function display(val){
     
 }
 
-
+const displayArea = document.querySelector("#result");
 const buttons = document.querySelectorAll(".regButton");
+const equals = document.querySelector("#equals");
+const clear = document.querySelector("#clearButton");
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         display(button.value);
         console.log("click " + button.value);
     });
+});
+
+equals.addEventListener('click', () => {
+    const values = displayValue.split(" ");
+    let num1 = values[0];
+    let operator = values[1];
+    let num2 = values[2];
+    displayArea.value = operate(num1, num2, operator);
 })
+
+
