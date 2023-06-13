@@ -47,10 +47,14 @@ function display(val){
     
 }
 
+function clear() {
+    displayArea.value = '';
+}
+
 const displayArea = document.querySelector("#result");
 const buttons = document.querySelectorAll(".regButton");
 const equals = document.querySelector("#equals");
-const clear = document.querySelector("#clearButton");
+const clearButton = document.querySelector("#clearButton");
 
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
@@ -60,11 +64,23 @@ buttons.forEach((button) => {
 });
 
 equals.addEventListener('click', () => {
+    let currentValue = '';
     const values = displayValue.split(" ");
-    let num1 = values[0];
-    let operator = values[1];
-    let num2 = values[2];
-    displayArea.value = operate(num1, num2, operator);
-})
+
+    while(values.length > 1) {
+        let num1 = values.shift();
+        let operator = values.shift();
+        let num2 = values.shift();
+
+        currentValue = operate(num1, num2, operator);
+        values.unshift(currentValue);        
+    }   
+    displayArea.value = currentValue;
+    
+});
+
+clearButton.addEventListener('click', () => {
+    displayArea.value = '';
+});
 
 
