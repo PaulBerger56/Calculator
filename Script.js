@@ -95,9 +95,7 @@ decimalButton.addEventListener('click', () => {
     if(displayArea.value.includes('.')) {
         return;
     }
-    display('.');
-    
-    
+    display('.');      
 });
 
 

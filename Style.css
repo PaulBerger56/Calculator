@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: white;
+  }
+  
+  #container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  #calcContainer {
+    background-color: black;
+    padding: 20px;
+  }
+  
+  #calcContainer table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 5px;
+  }
+  
+  #calcContainer td {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  #calcContainer td input[type="button"]:not(.regButton) {
+    background-color: orangered;
+  }
+  
+  .regButton {
+    background-color: white;
+    color: black;
+    width: 100%;
+  }
+  
+  input[type="text"] {
+    background-color: white;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+  
+  
